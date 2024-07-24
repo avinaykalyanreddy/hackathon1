@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #div1 {
+            display: flex;
+            justify-content: center;
+            align-items: stretch; /* Align items to stretch to equal height */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            padding: 20px;
+            min-height: 80vh; /* Increased height */
+        }
+        #div1 > div {
+            flex: 1 1 45%; /* Flex-grow, flex-shrink, and flex-basis properties */
+            margin: 10px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; /* Ensure content inside div is column-wise */
+            justify-content: space-between; /* Distribute space between items */
+        }
+        p {
+            font-size: 1.2em; /* Increased font size */
+            color: #333; /* Darker text color for better visibility */
+        }
+        /* Media queries for responsiveness */
+        @media (max-width: 600px) {
+            #div1 {
+                flex-direction: column;
+            }
+            #div1 > div {
+                flex-basis: 100%; 
+            }
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table th, table td {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #04AA6D;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #div1,#div2,#div3{
+            box-shadow: 10px 10px 5px lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div style="width: 60vw; font-size: xx-large;">
+            <p style="font-weight: bolder;">Nutrients Values</p>
+            <p>
+                {% for i in result %}
+                    {{ i[0] }}: {{ i[1] }}<br>
+                {% endfor %}
+            </p>
+            <div>
+                <button id="b1" onclick="inorganic()" style="padding: 7px;border: none;background-color: #04AA6D;color: white;cursor: pointer;">In-Organic</button>
+                <button id="b1" onclick="organic()" style="padding: 7px;border: none;background-color: #04AA6D;color: white;cursor: pointer;">Organic</button>
+            </div>
+        </div>
+        <div id="div2" style="width: 60vw; font-size: xx-large; display: none;">
+            <p style="font-weight: bolder;">Fertilizer Recommendation</p>
+            <table>
+                <tr>
+                    <th>Organic Substitute</th>
+
+                </tr>
+                {% for i in organic %}
+                    <tr>
+                        <td>{{ i }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div id="div3" style="width: 60vw; font-size: xx-large;display: none;">
+            <p style="font-weight: bolder;">Fertilizer Recommendation</p>
+
+            <table>
+                  <tr>
+                      <th>
+                          Inorganic Fertilizer
+                      </th>
+                      <th>To be added</th>
+                  </tr>
+
+                  <tr>
+                       
+                      <td>
+                          Urea
+                      </td>
+                      <td>
+                          {{inorganic_values[0]}} kg/acre
+                      </td>
+                      
+                  </tr>
+                  <tr>
+                       
+                    <td>
+                        DAP (Diammonium Phosphate)
+                    </td>
+                    <td>
+                        {{inorganic_values[1]}} kg/acre
+                    </td>
+                    
+                </tr>
+                <tr>
+                       
+                    <td>
+                        MOP (Muriate of Potash)
+                    </td>
+                    <td>
+                        {{inorganic_values[2]}} kg/acre
+                    </td>
+                    
+                </tr>
+            </table>
+
+        </div>
+    
+    </div>
+
+    <script>
+        function organic() {
+            document.getElementById("div2").style.display = "block";
+            document.getElementById("div3").style.display = "none";
+        }
+
+        function inorganic(){
+            document.getElementById("div3").style.display = "block";
+            document.getElementById("div2").style.display = "none";
+        }
+    </script>
+</body>
+</html>

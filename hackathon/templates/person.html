@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/person.css') }}">
+    <script src="{{ url_for('static', filename='js/person.js') }}" defer></script>
+</head>
+<body >
+    <div id="div1">
+        <p><span id="s1">MANNU</span> <span id="s3">MITRA</span> <span id="s2">Hi, <span style="color: #F4D03F; font-weight: bolder; font-size: x-large;text-transform: uppercase;">{{ user.name }}</span></span></p>
+    </div>
+    <div class="marquee">
+        <p>Soil to Farm, Not to Harm</p>
+    </div>
+
+   <!-- <table id="table1">
+        <tr class="tr1">
+            <th class="th1">👤 Profile</th>
+          
+        </tr>
+    </table>-->
+
+    <div class="card-container">
+        <div class="card" id="card1">
+            <p style="color: #212F3C; font-weight: bolder; text-transform: uppercase;font-weight: bolder; font-size: x-large;">{{ user.name }}</p>
+            <hr>
+            
+            <p title="phno" style="font-weight: bolder; font-size: x-large;">Phone Number  {{ user.phno }}</p>
+            <hr>
+        </div>
+
+        <div class="card" id="card2">
+            <form action="/page2" method="post">
+
+                <label for="soiltype" style="font-size: x-large;font-weight: bolder;">Soil Type</label>
+
+                <select name="soiltype" id="soiltype" onchange="soiltypeChange()">
+                    <option value="red_soil">Red Soil</option>
+                    <option value="black_soil">Black Soil</option>
+                    <option value="other" selected>Other</option>
+                </select>
+
+
+
+                <p id="p1"></p>
+
+                <p id="p2" style="display: none;" > <span style="color: #B03A2E;font-weight: bolder;font-size: x-large;">Crop Nutrients</span>
+
+                    <label for="n" style="font-weight: bolder;">Nitrogen(N)</label> <input id="n" name='n' type="text" required>
+
+                    <label for="k" style="font-weight: bolder;">Potassium(K)</label> <input id="k" name='k' type="text" required>
+
+                    <label for="p" style="font-weight: bolder;">Phosphorus(P)</label> <input id="p" name="p" type="text" required>
+                </p>
+
+                <div style="display: flex;justify-content: center;align-items: center;">
+                    <input id="submit"    type="submit" style="display: none; padding: 7px;font-weight: bolder;">
+                     
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MANNU MITRA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+    <script src="{{ url_for('static', filename='js/login.js') }}" defer></script>
+
+   
+</head>
+<body>
+    <div class="container">
+
+        <span class="text1" id="text1" >Welcome to</span>
+        <span class="text2">Mannu Mitra</span>
+   
+       
+    
+
+        
+        <div class="login-form" id="login-form" style="display: none;">
+            
+            <form action="/login_data" method="post">
+                
+               
+
+                        <input type="text" name="phno" placeholder="Phno" size="10" required autocomplete="off"><br>
+                        <input type="password" name="password" id="password" placeholder="Password" required><br>
+                        <input type="checkbox" onclick="togglePassword()" id="show">
+                        <label for="show" >Show Password</label>
+
+                <div id="div2">
+
+                        <input type="submit" id="submit1">
+                        <button id="fp">Forget Password</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
